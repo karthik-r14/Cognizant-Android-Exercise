@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 //                    Toast.makeText(getApplicationContext(), newsItem.getTitle() + ":" + newsItem.getDescription() + ":" + newsItem.getImageUrl(), Toast.LENGTH_LONG).show();
                     newsItemsForRecyclerView.add(new NewsItem(newsItem.getTitle(), newsItem.getDescription(), newsItem.getImageUrl()));
                 }
-                RecyclerViewAdapter adapter = new RecyclerViewAdapter(newsItemsForRecyclerView);
+                RecyclerViewAdapter adapter = new RecyclerViewAdapter(newsItemsForRecyclerView, getApplicationContext());
                 recyclerView.setAdapter(adapter);
             }
 
