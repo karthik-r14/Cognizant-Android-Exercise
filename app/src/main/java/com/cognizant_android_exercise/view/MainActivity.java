@@ -1,6 +1,5 @@
 package com.cognizant_android_exercise.view;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +29,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    private static final String JSON_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json";
+    //    private static final String JSON_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json";
     private static final String BASE_URL = "https://dl.dropboxusercontent.com/";
 
     @BindView(R.id.recycler_view)
