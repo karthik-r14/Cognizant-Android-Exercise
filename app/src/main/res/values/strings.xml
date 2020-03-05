@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Cognizant-Android-Exercise</string>
     <string name="refresh_button_msg">Refresh List</string>
+    <string name="no_internet_toast_msg">Internet is not available</string>
 </resources>

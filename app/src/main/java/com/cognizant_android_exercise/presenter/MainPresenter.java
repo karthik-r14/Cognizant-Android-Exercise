@@ -8,4 +8,10 @@ public class MainPresenter {
     public MainPresenter(MainView view) {
         this.view = view;
     }
+
+    public void onRefreshButtonClick(boolean internetConnectivity) {
+        if(!internetConnectivity) {
+            view.showNoInternetToastMessage();
+        }
+    }
 }
