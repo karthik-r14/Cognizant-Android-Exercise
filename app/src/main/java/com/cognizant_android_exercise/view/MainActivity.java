@@ -1,5 +1,6 @@
 package com.cognizant_android_exercise.view;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -81,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
             public void onResponse(Call<NewsItemResponse> call, Response<NewsItemResponse> response) {
                 newsItemsForRecyclerView = new ArrayList<>();
                 List<NewsItem> newsItems = response.body().getNewsItems();
+                String newsTitle = response.body().getTitle();
+//                Toast.makeText(getApplicationContext(), newsTitle, Toast.LENGTH_LONG).show();
+                setActionBarTitle(newsTitle);
 
                 for (NewsItem newsItem : newsItems) {
                     //Toast used for printing API data to screen.
@@ -97,5 +101,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 Log.e(TAG, throwable.toString());
             }
         });
+    }
+
+    private void setActionBarTitle(String newsTitle) {
+        androidx.appcompat.app.ActionBar supportActionBar = getSupportActionBar();
+        supportActionBar.setTitle(newsTitle);
     }
 }
