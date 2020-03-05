@@ -2,4 +2,7 @@
     <string name="app_name">Cognizant-Android-Exercise</string>
     <string name="refresh_button_msg">Refresh List</string>
     <string name="no_internet_toast_msg">Internet is not available</string>
+    <string name="sample_title_msg">Sample Title</string>
+    <string name="sample_description_msg">Sample Description</string>
+    <string name="sample_image_msg">Sample Image</string>
 </resources>
