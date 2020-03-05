@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
             @Override
             public void onFailure(Call<NewsItemResponse> call, Throwable throwable) {
+                Toast.makeText(getApplicationContext(), "Failed to load data from API", Toast.LENGTH_LONG).show();
                 Log.e(TAG, throwable.toString());
             }
         });
