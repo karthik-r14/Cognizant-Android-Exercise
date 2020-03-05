@@ -1,0 +1,2 @@
+rootProject.name='Cognizant-Android-Exercise'
+include ':app'
