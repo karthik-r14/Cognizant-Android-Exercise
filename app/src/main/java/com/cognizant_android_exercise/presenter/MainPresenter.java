@@ -12,6 +12,8 @@ public class MainPresenter {
     public void onRefreshButtonClick(boolean internetConnectivity) {
         if(!internetConnectivity) {
             view.showNoInternetToastMessage();
+        } else {
+            view.loadDataFromRestService();
         }
     }
 }

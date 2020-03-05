@@ -29,4 +29,13 @@ public class MainPresenterTest {
 
         verify(view).showNoInternetToastMessage();
     }
+
+    @Test
+    public void shouldShowListOfItemsFromRestServiceWhenInternetIsAvailableAndRefreshButtonIsClicked() {
+        boolean internetConnectivity = true;
+
+        presenter.onRefreshButtonClick(internetConnectivity);
+
+        verify(view).loadDataFromRestService();
+    }
 }

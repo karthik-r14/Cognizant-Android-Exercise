@@ -36,4 +36,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void showNoInternetToastMessage() {
         Toast.makeText(getApplicationContext(), R.string.no_internet_toast_msg, Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    public void loadDataFromRestService() {
+
+    }
 }
