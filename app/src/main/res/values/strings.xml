@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Cognizant-Android-Exercise</string>
+    <string name="refresh_button_msg">Refresh List</string>
 </resources>
