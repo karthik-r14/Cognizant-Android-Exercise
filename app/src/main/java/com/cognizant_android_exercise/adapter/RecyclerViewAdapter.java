@@ -31,7 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        holder.newsItemTitle.setHint(newsItems.get(position).getTitle());
+        holder.newsItemTitle.setText(newsItems.get(position).getTitle());
         holder.newsItemDescription.setText(newsItems.get(position).getDescription());
     }
 
