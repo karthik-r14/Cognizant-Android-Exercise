@@ -18,8 +18,4 @@ public class NewsItemResponse {
     public List<NewsItem> getNewsItems() {
         return newsItems;
     }
-
-    public void setNewsItems(List<NewsItem> newsItems) {
-        this.newsItems = newsItems;
-    }
 }
