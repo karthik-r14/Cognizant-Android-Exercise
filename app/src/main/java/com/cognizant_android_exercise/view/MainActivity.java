@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.cognizant_android_exercise.R;
 import com.cognizant_android_exercise.adapter.RecyclerViewAdapter;
+import com.cognizant_android_exercise.di.DaggerApiComponent;
 import com.cognizant_android_exercise.model.NewsItem;
 import com.cognizant_android_exercise.model.NewsItemResponse;
 import com.cognizant_android_exercise.presenter.MainPresenter;
@@ -15,6 +16,8 @@ import com.cognizant_android_exercise.util.InternetUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,19 +28,17 @@ import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    //    private static final String JSON_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json";
-    private static final String BASE_URL = "https://dl.dropboxusercontent.com/";
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
+    @Inject
+    public NewsItemApiService newsItemApiService;
+
     private MainPresenter presenter;
     private List<NewsItem> newsItemsForRecyclerView;
-    private static Retrofit retrofit = null;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         recyclerView.setLayoutManager(layoutManager);
 
         presenter = new MainPresenter(this);
+
+        DaggerApiComponent.create().inject(this);
     }
 
     @OnClick(R.id.refresh_button)
@@ -68,13 +71,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void loadDataFromRestService() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-        final NewsItemApiService newsItemApiService = retrofit.create(NewsItemApiService.class);
         Call<NewsItemResponse> call = newsItemApiService.getNewItems();
         call.enqueue(new Callback<NewsItemResponse>() {
             @Override
